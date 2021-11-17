@@ -2,7 +2,7 @@ import { firestore, rtdb } from "./db"
 import * as express from "express";
 import * as  cors from "cors"
 import { nanoid } from "nanoid"
-console.log("Hola")
+
 /* app.use tiene que estar arriba de las lineas de lógica */
 const app = express();
 app.use(express.static("dist"));
