@@ -10,8 +10,6 @@ app.use(express.json());
 app.use(cors());
 const port = process.env.PORT || 3000;
 
-const API_URL = "http://localhost:3000";
-
 
 const usersColl = firestore.collection("users");
 const roomsColl = firestore.collection("rooms");
