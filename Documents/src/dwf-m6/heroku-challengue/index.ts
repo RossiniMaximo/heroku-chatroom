@@ -8,7 +8,7 @@ const app = express();
 app.use(express.static("dist"));
 app.use(express.json());
 app.use(cors());
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 const API_URL = "http://localhost:3000";
 
