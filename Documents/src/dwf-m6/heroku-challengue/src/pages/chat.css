@@ -1,0 +1,121 @@
+*{
+    box-sizing:border-box;
+    margin : 0 ;
+    padding : 0;
+}
+.header{
+    height : 40px;
+    font-size : 20px;
+    font-family : "Lora", "serif";
+    margin-left : 5px;
+    padding : 5px;
+    color : #DC143C;
+    font-weight: bold;
+}
+.content-container{
+    display : flex;
+    flex-direction : column;
+     align-items : center;
+    gap : 40px;
+    background-image: url("../images/background.jpg")
+}
+.title-container{}
+.title{
+    text-align : center;
+    font-size : 40px;
+    font-family : "Lora", "serif";
+    color : #DC143C;
+    letter-spacing : 12px;
+}
+.chat-content{
+    margin-top:10px;
+    padding : 20px;
+    display : flex;
+    flex-direction : column;
+    justify-content:space-between;
+    height:500px;
+    
+}
+@media(min-width:900px){
+    .chat-content{
+        align-items: center;
+        gap : 100px;
+        height: 600px;
+    }
+}
+.messages{
+    overflow:scroll;
+    overflow-x: hidden;
+    height :350px;
+}
+@media(min-width : 900px){
+    .messages{
+        width: 100%;
+    }
+}
+.my-msg{
+    margin-left : 200px;
+}
+@media(min-width : 900px){
+    .my-msg{
+        margin-left : 1000px;
+    }
+}
+.message{
+    overflow : hidden;
+    max-width : 190px;
+    font-family: "roboto";
+    font-size : 16px;
+    margin-top: 5px;
+    border : solid 1px;;
+    border-radius : 4px;
+    padding : 6px;
+    background-color : white;
+}
+.submit-msg{}
+@media(min-width : 900px){
+    .submit-msg{
+        width :100%;
+        display : flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+.input:focus {
+    outline: 0;
+    outline-color: transparent;
+    outline-style: none;
+}
+.input{
+    width : 100%;
+    padding : 10px;
+    border : solid 2px;
+    border-radius : 6px;
+}
+@media(min-width: 900px){
+    .input{
+        width : 400px;
+    }
+}
+.send-butt-cont{    
+    margin-top : 10px;
+}
+
+.send-button:hover{
+    background-color : #DC143C;
+    transition: background-color .5s;
+    color : white
+}
+.send-button{
+    padding :10px;
+    width :100%;
+    font-family : "roboto";
+    border : solid 2px;
+    border-radius  : 6px;
+    font-size: 20px;
+}
+@media(min-width:900px){
+    .send-button{
+        width :400px;
+}
+}
