@@ -1,0 +1,71 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\MMAaxi\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js build
+
+PATH: 
+  C:\Users\MMAaxi\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\MMAaxi\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Python39\Scripts;C:\Python39;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\ProgramData\chocolatey\bin;C:\Program Files\nodejs;C:\Program Files\Git\cmd;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0;C:\WINDOWS\System32\OpenSSH;C:\Users\MMAaxi\AppData\Local\Microsoft\WindowsApps;C:\Users\MMAaxi\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\MMAaxi\AppData\Roaming\npm;C:\Users\MMAaxi\AppData\Local\Hyper\app-3.0.2\resources\bin;C:\Users\MMAaxi\AppData\Local\Programs\Hyper\resources\bin;C:\Program Files\heroku\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.11
+
+Node version: 
+  15.4.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string. Received [Object: null prototype]
+      at new NodeError (node:internal/errors:278:15)
+      at validateString (node:internal/validators:123:11)
+      at Object.isAbsolute (node:path:375:5)
+      at module.exports.exports.default (C:\Users\MMAaxi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:101038:16)
+      at C:\Users\MMAaxi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:51529:63
+      at Generator.next (<anonymous>)
+      at step (C:\Users\MMAaxi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:310:30)
+      at C:\Users\MMAaxi\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "heroku-challengue",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "commonjs" ,
+    "dependencies": {
+      "@types/node": "^16.11.7",
+      "@vaadin/router": "^1.7.4",
+      "body-parser": "^1.19.0",
+      "cors": "^2.8.5",
+      "dotenv": "^10.0.0",
+      "express": "^4.17.1",
+      "firebase": "8.7.1",
+      "firebase-admin": "^10.0.0",
+      "lodash": "^4.17.21",
+      "nanoid": "^3.1.30",
+      "nodemon": "^2.0.14",
+      "parcel": "^2.0.0-rc.0",
+      "ts-node": "^10.4.0",
+      "typescript": "^4.5.2",
+      "uuid": "^8.3.2",
+      "engines": {
+        "node": "15.4.0"
+      }
+    },
+    "scripts": {
+      "dev": "nodemon --watch ./index.ts --exec ts-node dev.ts",
+      "dev:front": "parcel serve ./src/index.html",
+      "build:front": "parcel build ./src/index.html",
+      "build:api" :"tsc",
+      "test": "ava",
+      "build": "npm run build:front && npm run build:api",
+      "start": "node ./index.js"
+    },
+    "devDependencies": {
+      "@parcel/transformer-image": "2.0.0-rc.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

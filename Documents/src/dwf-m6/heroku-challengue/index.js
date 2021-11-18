@@ -1,26 +1,26 @@
 "use strict";
-exports.__esModule = true;
-var db_1 = require("./db");
-var express = require("express");
-var cors = require("cors");
-var nanoid_1 = require("nanoid");
+Object.defineProperty(exports, "__esModule", { value: true });
+const db_1 = require("./db");
+const express = require("express");
+const cors = require("cors");
+const nanoid_1 = require("nanoid");
 /* app.use tiene que estar arriba de las lineas de lógica */
-var app = express();
+const app = express();
 app.use(express.static("dist"));
 app.use(express.json());
 app.use(cors());
-var port = process.env.PORT || 3000;
-var usersColl = db_1.firestore.collection("users");
-var roomsColl = db_1.firestore.collection("rooms");
+const port = process.env.PORT || 3000;
+const usersColl = db_1.firestore.collection("users");
+const roomsColl = db_1.firestore.collection("rooms");
 app.post("/signup", function (req, res) {
-    var email = req.body.email;
-    var name = req.body.name;
-    usersColl.where("email", "==", email).get().then(function (doc) {
+    const { email } = req.body;
+    const { name } = req.body;
+    usersColl.where("email", "==", email).get().then((doc) => {
         if (doc.empty) {
             usersColl.add({
-                email: email,
-                name: name
-            }).then(function (newUserDoc) {
+                email,
+                name,
+            }).then((newUserDoc) => {
                 res.json({
                     message: "Usuario creado exitosamente",
                     id: newUserDoc.id
@@ -36,10 +36,10 @@ app.post("/signup", function (req, res) {
     });
 });
 app.post("/auth", function (req, res) {
-    var email = req.body.email;
-    usersColl.where("email", "==", email).get().then(function (doc) {
+    const { email } = req.body;
+    usersColl.where("email", "==", email).get().then((doc) => {
         if (doc) {
-            var docId = doc.docs[0].id;
+            const docId = doc.docs[0].id;
             res.json({
                 id: docId
             });
@@ -52,19 +52,19 @@ app.post("/auth", function (req, res) {
     });
 });
 app.post("/rooms", function (req, res) {
-    var userId = req.body.userId;
-    usersColl.doc(userId.toString()).get().then(function (doc) {
+    const { userId } = req.body;
+    usersColl.doc(userId.toString()).get().then((doc) => {
         if (doc.exists) {
-            var roomRef_1 = db_1.rtdb.ref("rooms/" + (0, nanoid_1.nanoid)());
-            roomRef_1.set({
-                messages: [],
+            const roomRef = db_1.rtdb.ref("rooms/" + (0, nanoid_1.nanoid)());
+            roomRef.set({
+                messages: [] = [],
                 owner: userId
-            }).then((function (rtdbRes) {
-                var roomLongId = roomRef_1.key;
-                var roomSimpleId = 1000 + Math.floor(Math.random() * 999);
+            }).then((rtdbRes => {
+                const roomLongId = roomRef.key;
+                const roomSimpleId = 1000 + Math.floor(Math.random() * 999);
                 roomsColl.doc(roomSimpleId.toString()).set({
                     rtdbRoomId: roomLongId
-                }).then(function () {
+                }).then(() => {
                     res.json({
                         id: roomSimpleId.toString()
                     });
@@ -79,12 +79,12 @@ app.post("/rooms", function (req, res) {
     });
 });
 app.get("/rooms/:roomId", function (req, res) {
-    var userId = req.query.userId;
-    var roomId = req.params.roomId;
-    usersColl.doc(userId.toString()).get().then(function (doc) {
+    const { userId } = req.query;
+    const { roomId } = req.params;
+    usersColl.doc(userId.toString()).get().then((doc) => {
         if (doc.exists) {
-            roomsColl.doc(roomId.toString()).get().then(function (roomDocSnap) {
-                var data = roomDocSnap.data();
+            roomsColl.doc(roomId.toString()).get().then((roomDocSnap) => {
+                const data = roomDocSnap.data();
                 res.json(data);
             });
         }
@@ -96,13 +96,13 @@ app.get("/rooms/:roomId", function (req, res) {
     });
 });
 app.post("/rooms/:roomId/messages", function (req, res) {
-    var roomId = req.params.roomId;
-    var chatRoomsRef = db_1.rtdb.ref("/rooms/" + roomId + "/messages");
+    const { roomId } = req.params;
+    const chatRoomsRef = db_1.rtdb.ref("/rooms/" + roomId + "/messages");
     chatRoomsRef.push(req.body, function () {
         console.log("soy el req.body", req.body);
         res.json("ok");
     });
 });
-app.listen(port, function () {
-    console.log("Example app listening at http://localhost:".concat(port));
+app.listen(port, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
 });
