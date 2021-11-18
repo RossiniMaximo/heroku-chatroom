@@ -2,6 +2,7 @@
   "name": "heroku-challengue",
   "version": "1.0.0",
   "license": "MIT",
+  "type" : "commonjs",
   "dependencies": {
     "@types/node": "^16.11.7",
     "@vaadin/router": "^1.7.4",
@@ -24,7 +25,7 @@
     "dev:front": "parcel serve ./src/index.html",
     "build:front": "parcel build ./src/index.html",
     "test": "ava",
-    "build": "tsc",
+    "build": "tsc index.ts",
     "start": "node ./index.js"
   },
   "devDependencies": {
