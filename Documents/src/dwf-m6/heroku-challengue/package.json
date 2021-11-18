@@ -25,7 +25,7 @@
     "dev:front": "parcel serve ./src/index.html",
     "build:front": "parcel build ./src/index.html",
     "test": "ava",
-    "build": "tsc index.ts",
+    "build": "tsc && tsc index.ts",
     "start": "node ./index.js"
   },
   "devDependencies": {
