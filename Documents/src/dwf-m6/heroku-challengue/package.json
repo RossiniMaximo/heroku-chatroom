@@ -2,6 +2,7 @@
   "name": "heroku-challengue",
   "version": "1.0.0",
   "license": "MIT",
+  "type" : "commonjs",
   "dependencies": {
     "@types/node": "^16.11.7",
     "@vaadin/router": "^1.7.4",
