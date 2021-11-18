@@ -25,8 +25,8 @@ export class Home extends HTMLElement {
                     */
                     const inputValue = target["room-id"].value
                     cs.roomId = inputValue;
-                    state.setState(cs)
                     state.accessToRoom();
+                    state.setState(cs)
                 }
             });
 

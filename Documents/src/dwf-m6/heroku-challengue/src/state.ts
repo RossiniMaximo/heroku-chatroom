@@ -1,4 +1,4 @@
-const API_URL = process.env.PORT || "http://localhost:3000";
+const API_URL = "http://localhost:3000";
 import { rtdb } from "./rtdb";
 import map from "lodash/map"
 /* no se esta mandando el from de los mensajes dando undefined */
