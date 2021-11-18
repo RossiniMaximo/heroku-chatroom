@@ -29,7 +29,7 @@
     "build:front": "parcel build ./src/index.html",
     "build:api" :"tsc",
     "test": "ava",
-    "build": "yarn build:front && yarn build:api",
+    "build": "npm run build:front && npm run build:api",
     "start": "node ./index.js"
   },
   "devDependencies": {
