@@ -90,7 +90,7 @@ const state = {
     signIn(callback?) {
         const cs = this.getState();
         if (cs.email) {
-            fetch(API_URL + "/auth", {
+            fetch("/auth", {
                 method: "post",
                 headers: {
                     "content-type": "application/json"
