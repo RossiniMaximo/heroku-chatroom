@@ -4,5 +4,5 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
   },
-  "files": ["index.ts"]
+  "files": ["./index.ts"]
 }
