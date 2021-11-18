@@ -55,7 +55,7 @@ const state = {
     },
     pushMessage(message: string) {
         const cs = this.getState();
-        fetch(API_URL + "/rooms/" + cs.rtdbRoomId + "/messages", {
+        fetch("/rooms/" + cs.rtdbRoomId + "/messages", {
             method: "post",
             headers: {
                 'content-type': "application/json"
@@ -69,7 +69,7 @@ const state = {
     },
     signUp(callback?) {
         const cs = this.getState();
-        fetch(API_URL + "/signup", {
+        fetch("/signup", {
             method: "post",
             headers: {
                 "content-type": "application/json"
@@ -110,7 +110,7 @@ const state = {
     askNewRoom(callback?) {
         const cs = this.getState();
         if (cs.userId) {
-            fetch(API_URL + "/rooms", {
+            fetch("/rooms", {
                 method: "post",
                 headers: {
                     "Content-type": "application/json"
@@ -130,7 +130,7 @@ const state = {
     },
     accessToRoom(callback?) {
         const cs = this.getState();
-        fetch(API_URL + "/rooms/" + cs.roomId + "?userId=" + cs.userId)
+        fetch("/rooms/" + cs.roomId + "?userId=" + cs.userId)
             .then((res) => { return res.json() })
             .then((data) => {
                 console.log("soy la data del accesToRoom", data);
