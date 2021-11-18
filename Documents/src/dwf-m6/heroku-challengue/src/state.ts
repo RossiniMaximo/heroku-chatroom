@@ -1,4 +1,4 @@
-const API_URL = "https://dwf-m6-heroku.herokuapp.com/";
+const API_URL = "http://localhost:3000";
 import { rtdb } from "./rtdb";
 import map from "lodash/map"
 /* no se esta mandando el from de los mensajes dando undefined */
